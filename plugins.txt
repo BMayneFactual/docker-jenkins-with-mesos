@@ -14,4 +14,6 @@ github
 junit
 mailer
 slack
+cloudbees-folder
+metrics
 mesos
