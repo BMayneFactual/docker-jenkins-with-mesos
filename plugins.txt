@@ -5,6 +5,9 @@ ssh-credentials
 structs
 workflow-step-api
 scm-api
+cloudbees-folder
+jackson2-api
+metrics
 ldap
 token-macro 
 git
@@ -14,6 +17,4 @@ github
 junit
 mailer
 slack
-cloudbees-folder
-metrics
 mesos
