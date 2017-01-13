@@ -1,8 +1,8 @@
 FROM jenkins
 USER root
 
-RUN apt-get update && apt-get -y install apt-utils libsasl2-modules
-RUN curl -s http://repos.mesosphere.com/debian/pool/main/m/mesos/mesos_1.0.1-2.0.93.debian81_amd64.deb > mesos.deb
+RUN apt-get update && apt-get -y install apt-utils libsasl2-modules libevent-dev 
+RUN curl -s http://repos.mesosphere.com/debian/pool/main/m/mesos/mesos_1.1.0-2.0.107.debian81_amd64.deb > mesos.deb
 RUN dpkg -x mesos.deb /tmp/mesos-pkg && rm mesos.deb
 
 RUN cp /tmp/mesos-pkg/usr/lib/libmesos* /usr/lib/
