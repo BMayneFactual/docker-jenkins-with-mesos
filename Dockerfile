@@ -2,12 +2,10 @@ FROM jenkins
 USER root
 
 RUN apt-get update && apt-get -y install apt-utils libsasl2-modules
-
-RUN curl -s http://repos.mesosphere.com/debian/pool/main/m/mesos/mesos_1.1.0-2.0.107.debian81_amd64.deb > mesos.deb
+RUN curl -s http://repos.mesosphere.com/debian/pool/main/m/mesos/mesos_1.0.1-2.0.93.debian81_amd64.deb > mesos.deb
 RUN dpkg -x mesos.deb /tmp/mesos-pkg && rm mesos.deb
 
 RUN cp /tmp/mesos-pkg/usr/lib/libmesos* /usr/lib/
-
 RUN mkdir -p /var/jenkins_backups && chown jenkins:jenkins /var/jenkins_backups
 
 ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so
