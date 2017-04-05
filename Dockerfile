@@ -17,6 +17,12 @@ RUN plugins.sh plugins.txt
 #expose a backups volume for easy retrieval later
 VOLUME ["/var/jenkins_home","/var/jenkins_backups"]
 
+# sbt
+RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
+RUN apt-get update
+RUN apt-get install -y sbt
+
 #cleanup
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
